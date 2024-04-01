@@ -10,6 +10,7 @@ jobs:
       - name: Scan Remote Image
         uses: neuvector/scan-action@main
         with:
+          debug: true
           image-registry: docker.io
           image-registry-username: ${{ secrets.REGISTRYUSERNAME }}
           image-registry-password: ${{ secrets.REGISTRYPASSWORD }}
