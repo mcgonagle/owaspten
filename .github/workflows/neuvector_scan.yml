@@ -1,8 +1,5 @@
 name: build
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 jobs:
   build:
     name: Build
@@ -13,7 +10,7 @@ jobs:
       - name: Scan Remote Image
         uses: neuvector/scan-action@main
         with:
-          image-registry: https://registry.hub.docker.com
+          image-registry: https://registry.hub.docker.com:443/
           image-registry-username: ${{ secrets.REGISTRYUSERNAME }}
           image-registry-password: ${{ secrets.REGISTRYPASSWORD }}
           image-repository: mcgonagle/owaspten
