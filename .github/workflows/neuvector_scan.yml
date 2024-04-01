@@ -1,0 +1,22 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Scan Remote Image
+        uses: neuvector/scan-action@main
+        with:
+          image-registry: https://registry.hub.docker.com
+          image-registry-username: ${{ secrets.RegistryUsername }}
+          image-registry-password: ${{ secrets.RegistryPassword }}
+          image-repository: mcgonagle/owaspten
+          image-tag: latest
+          min-high-cves-to-fail: "1"
+          min-medium-cves-to-fail: "1"
