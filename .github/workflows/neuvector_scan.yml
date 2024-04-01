@@ -11,7 +11,7 @@ jobs:
         uses: neuvector/scan-action@main
         with:
           debug: true
-          image-registry: https://docker.io
+          image-registry: https://www.docker.com
           image-registry-username: ${{ secrets.REGISTRYUSERNAME }}
           image-registry-password: ${{ secrets.REGISTRYPASSWORD }}
           image-repository: mcgonagle/owaspten
